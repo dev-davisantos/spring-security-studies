@@ -2,11 +2,10 @@ package dev_davisantos.spring_security_studies.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.core.GrantedAuthorityDefaults;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -18,12 +17,13 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 @EnableWebSecurity
+@EnableMethodSecurity (securedEnabled = true)
 public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(
             HttpSecurity http,
-            SecretAuthenticationFilter secretAuthProvider) throws Exception {
+            SecretAuthenticationFilter secretAuthFilter) throws Exception {
         return http
                 .authorizeHttpRequests( authorization -> {
                     authorization.requestMatchers("/public").permitAll();
@@ -31,7 +31,7 @@ public class SecurityConfig {
                 })
                 .httpBasic(Customizer.withDefaults())
                 .formLogin(Customizer.withDefaults())
-                .addFilterBefore(secretAuthProvider, UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(secretAuthFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
 
