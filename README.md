@@ -29,8 +29,14 @@
 - Learned how to add to filter chain this custom filter
 - Learned how to configure the sequence of filters
 
-### feat: learn about diference between roles and authorities, and how to change the roles prefix
+### feat: learn about diference between roles and authorities, and how to change the roles prefix (#968581b)
 - Understood how Spring Security read and proccess roles and authorities
-- learn how to create a authorization for a url of endpoints
-- creating a new prefix for roles
-- tested a prefix GROUP_ for role (using GROUP_ADMIN role)
+- Learn how to create a authorization for a url of endpoints
+- Creating a new prefix for roles
+- Tested a prefix GROUP_ for role (using GROUP_ADMIN role)
+
+### fix: cleaning the security configurations, for using authorization in endpoints by controller
+- Remove custom authentication provider from security chain
+- Remove a custom prefix for roles
+- Change the user from SecretAuthenticationFilter, from role "ROLE_USER" to "ROLE_SPECIAL"
+- Enable my in memory UserDetailsService

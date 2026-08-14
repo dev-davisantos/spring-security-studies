@@ -23,17 +23,14 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(
             HttpSecurity http,
-            CustomAuthenticationProvider customAuthProvider,
             SecretAuthenticationFilter secretAuthProvider) throws Exception {
         return http
                 .authorizeHttpRequests( authorization -> {
                     authorization.requestMatchers("/public").permitAll();
-                    authorization.requestMatchers("/admin").hasRole("ADMIN");
                     authorization.anyRequest().authenticated();
                 })
                 .httpBasic(Customizer.withDefaults())
                 .formLogin(Customizer.withDefaults())
-                .authenticationProvider(customAuthProvider)
                 .addFilterBefore(secretAuthProvider, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
@@ -60,8 +57,4 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder(10);
     }
 
-    @Bean
-    public GrantedAuthorityDefaults grantedAuthorityDefaults() {
-        return new GrantedAuthorityDefaults("GROUP_");
-    }
 }

@@ -29,7 +29,7 @@ public class SecretAuthenticationFilter extends OncePerRequestFilter {
                 Authentication auth = new UsernamePasswordAuthenticationToken(
                         "secretUser",
                         null,
-                        List.of(new SimpleGrantedAuthority("ROLE_USER"))
+                        List.of(new SimpleGrantedAuthority("ROLE_SPECIAL"))
                 );
                 SecurityContextHolder.getContext().setAuthentication(auth);
             }
