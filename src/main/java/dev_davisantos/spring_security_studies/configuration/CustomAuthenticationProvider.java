@@ -24,7 +24,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
         if (login.equals(loginAdmin) && password.equals(passwordAdmin)) {
             return new UsernamePasswordAuthenticationToken
-                    (loginAdmin, null, List.of(new SimpleGrantedAuthority("ADMIN")));
+                    (loginAdmin, null, List.of(new SimpleGrantedAuthority("GROUP_ADMIN")));
         }
         return null;
     }

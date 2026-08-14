@@ -16,4 +16,11 @@ public class TestSimpleController {
     public ResponseEntity<String> privateRoute() {
         return ResponseEntity.ok("Private route is working!");
     }
+
+    @GetMapping("/admin")
+    public ResponseEntity<String> adminRoute() {
+        return ResponseEntity.ok("Admin route is working!");
+
+    }
+
 }

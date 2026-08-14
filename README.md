@@ -1,7 +1,7 @@
 # Spring Security Studies
 
 ## Objective:
-### This repositoriy was created to document my Spring Security studies.
+ **This repositoriy was created to document my Spring Security studies.**
 
 ## Commits:
 **Note: I will explain in this readme everything I've learned in each step of the course or tests, using commits to document what i did or learn**
@@ -24,7 +24,13 @@
 - Learned how to create a own custom Authentication provider
 - Learned how to use my own Authentication Provider in my SecurityFilterChain
 
-### feat: learn how to add a custom security filter
+### feat: learn how to add a custom security filter (#dbd79de)
 - Learned how to create a filter with OncePerRequestFilter
 - Learned how to add to filter chain this custom filter
 - Learned how to configure the sequence of filters
+
+### feat: learn about diference between roles and authorities, and how to change the roles prefix
+- Understood how Spring Security read and proccess roles and authorities
+- learn how to create a authorization for a url of endpoints
+- creating a new prefix for roles
+- tested a prefix GROUP_ for role (using GROUP_ADMIN role)
