@@ -1,5 +1,6 @@
 package dev_davisantos.spring_security_studies.controller;
 
+import dev_davisantos.spring_security_studies.dto.UserRequestDTO;
 import dev_davisantos.spring_security_studies.model.UserEntity;
 import dev_davisantos.spring_security_studies.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -29,7 +30,7 @@ public class UserController {
 
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<UserEntity> create(@RequestBody UserEntity request) {
+    public ResponseEntity<UserEntity> create(@RequestBody UserRequestDTO request) {
         return ResponseEntity.ok(userService.createUser(request));
     }
 }

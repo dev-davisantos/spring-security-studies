@@ -48,8 +48,14 @@
 - Debuged my API to find a 401 for all users, and realize that Spring is using CustomAuthenticationProvider automatically because it's have an @Component annotation, same if it's not configured in SecurityFilterChain. And i left the class to document an old provider that i used, but let the annotation like a component, to not be activated again
 - Tested the routes after fixed the 401 bug.
 
-### feat: add user and role domain, to learn how to create users and roles
-- created entities for users and roles
-- created repositories for users and roles
-- created services for users and roles
-- created controllers for users and roles
+### feat: add user and role domain, to learn how to create users and roles (#8bdecd7)
+- Created entities for users and roles 
+- Created repositories for users and roles
+- Created services for users and roles
+- Created controllers for users and roles
+
+### feat: improve user creation, with encoding the password and associating with roles
+- Disable csrf to enable methods from other programs
+- Create a UserRequestDTO, to carry the user creation infos
+- Create a method to find role in database by name
+- Improve the user creation in UserService, associating with RoleEntities and encoding the password
