@@ -12,14 +12,19 @@
 - Created a simple config for route "/public" and others
 - Created a controller to test this routes
 
-### feat: learn how to add in memory initial users, and how to create a password encoder(e2942be)
+### feat: learn how to add in memory initial users, and how to create a password encoder (#e2942be)
 - Learned how UserDetailsService works
 - Learned how to create a UserDetailsService with in memory users
 - Learned how Spring Security can authenticated by UserDetails
 - Learned how to create a password encoder
 - Learned how Spring encode and use encoder to matches the password
 
-### feat: learn how to create a custom authentication provider
+### feat: learn how to create a custom authentication provider (#ec9e858)
 - Learned how Authentication Provider works by default
 - Learned how to create a own custom Authentication provider
 - Learned how to use my own Authentication Provider in my SecurityFilterChain
+
+### feat: learn how to add a custom security filter
+- Learned how to create a filter with OncePerRequestFilter
+- Learned how to add to filter chain this custom filter
+- Learned how to configure the sequence of filters
