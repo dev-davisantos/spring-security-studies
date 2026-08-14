@@ -35,15 +35,21 @@
 - Creating a new prefix for roles
 - Tested a prefix GROUP_ for role (using GROUP_ADMIN role)
 
-### fix: cleaning the security configurations, for using authorization in endpoints by controller
+### fix: cleaning the security configurations, for using authorization in endpoints by controller (#732f01e)
 - Remove custom authentication provider from security chain
 - Remove a custom prefix for roles
 - Change the user from SecretAuthenticationFilter, from role "ROLE_USER" to "ROLE_SPECIAL"
 - Enable my in memory UserDetailsService
 
-### feat: add in controller permission control, with @EnableMethodSecurity and @PreAuthorize
+### feat: add in controller permission control, with @EnableMethodSecurity and @PreAuthorize (#3f41b2a)
 - Used @EnabledMethodSecurity (EnabledSecurity = true) to enable in controller permission control
 - Used authorization.requestMatchers to set public or non public routes in API.
 - Used @PreAuthorize to set a admin only endpoint
 - Debuged my API to find a 401 for all users, and realize that Spring is using CustomAuthenticationProvider automatically because it's have an @Component annotation, same if it's not configured in SecurityFilterChain. And i left the class to document an old provider that i used, but let the annotation like a component, to not be activated again
 - Tested the routes after fixed the 401 bug.
+
+### feat: add user and role domain, to learn how to create users and roles
+- created entities for users and roles
+- created repositories for users and roles
+- created services for users and roles
+- created controllers for users and roles
