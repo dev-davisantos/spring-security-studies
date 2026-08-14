@@ -2,6 +2,7 @@ package dev_davisantos.spring_security_studies.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -18,14 +19,15 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http, CustomAuthenticationProvider authProvider) throws Exception {
         return http
-                .authorizeHttpRequests( auth -> {
-                    auth.requestMatchers("/public").permitAll();
-                    auth.anyRequest().authenticated();
+                .authorizeHttpRequests( authorization -> {
+                    authorization.requestMatchers("/public").permitAll();
+                    authorization.anyRequest().authenticated();
                 })
                 .httpBasic(Customizer.withDefaults())
                 .formLogin(Customizer.withDefaults())
+                .authenticationProvider(authProvider)
                 .build();
     }
 
