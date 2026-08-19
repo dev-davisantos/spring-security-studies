@@ -1,10 +1,10 @@
 # Spring Security Studies
 
 ## Objective:
- **This repositoriy was created to document my Spring Security studies.**
+ **This repository was created to document my Spring Security studies.**
 
 ## Commits:
-**Note: I will explain in this readme everything I've learned in each step of the course or tests, using commits to document what i did or learn**
+**Note: I will explain in this readme everything I've learned in each step of the course or tests, using commits to document what I did or learn**
 
 ### feat: learn how to create a default securityFilterChain config, and create a controller for testing this (#257facb)
 - Learned how default configs of spring security works
@@ -21,7 +21,7 @@
 
 ### feat: learn how to create a custom authentication provider (#ec9e858)
 - Learned how Authentication Provider works by default
-- Learned how to create a own custom Authentication provider
+- Learned how to create an own custom Authentication provider
 - Learned how to use my own Authentication Provider in my SecurityFilterChain
 
 ### feat: learn how to add a custom security filter (#dbd79de)
@@ -30,8 +30,8 @@
 - Learned how to configure the sequence of filters
 
 ### feat: learn about diference between roles and authorities, and how to change the roles prefix (#968581b)
-- Understood how Spring Security read and proccess roles and authorities
-- Learn how to create a authorization for a url of endpoints
+- Understood how Spring Security read and process roles and authorities
+- Learn how to create an authorization for a url of endpoints
 - Creating a new prefix for roles
 - Tested a prefix GROUP_ for role (using GROUP_ADMIN role)
 
@@ -43,9 +43,9 @@
 
 ### feat: add in controller permission control, with @EnableMethodSecurity and @PreAuthorize (#3f41b2a)
 - Used @EnabledMethodSecurity (EnabledSecurity = true) to enable in controller permission control
-- Used authorization.requestMatchers to set public or non public routes in API.
-- Used @PreAuthorize to set a admin only endpoint
-- Debuged my API to find a 401 for all users, and realize that Spring is using CustomAuthenticationProvider automatically because it's have an @Component annotation, same if it's not configured in SecurityFilterChain. And i left the class to document an old provider that i used, but let the annotation like a component, to not be activated again
+- Used authorization.requestMatchers to set public or non-public routes in API.
+- Used @PreAuthorize to set an admin only endpoint
+- Debuged my API to find a 401 for all users, and realize that Spring is using CustomAuthenticationProvider automatically because it's having a @Component annotation, same if it's not configured in SecurityFilterChain. And I left the class to document an old provider that I used, but let the annotation like a component, to not be activated again
 - Tested the routes after fixed the 401 bug.
 
 ### feat: add user and role domain, to learn how to create users and roles (#8bdecd7)
@@ -54,8 +54,18 @@
 - Created services for users and roles
 - Created controllers for users and roles
 
-### feat: improve user creation, with encoding the password and associating with roles
+### feat: improve user creation, with encoding the password and associating with roles (#ab267f2)
 - Disable csrf to enable methods from other programs
 - Create a UserRequestDTO, to carry the user creation infos
 - Create a method to find role in database by name
 - Improve the user creation in UserService, associating with RoleEntities and encoding the password
+
+### feat: create my own Authentication implementation, and test AuthenticationProvider with two UserDetailsService implementations
+- Learn how to create my own Authentication implementation
+- Create a IdentityAuthentication to use my own UserIdentity (But this IdentityAUthentication is never used)
+- Create an implementation of UserDetailsService
+- Set my UserEntity to implement UserDetails
+- Set my RoleEntity to implement GrantedAuthority
+- Improve my CustomAuthenticationProvider, to use my both UserDetailsService implementations
+- Learn to use @Qualifier to set which UserDetailsService bean, the spring must inject
+- Test if AuthenticationProvider can works with persisted users, and not persisted at the same time

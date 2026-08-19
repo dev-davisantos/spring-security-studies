@@ -38,7 +38,7 @@ public class SecurityConfig {
     }
 
     @Bean
-    public UserDetailsService userDetailsService() {
+    public UserDetailsService inMemoryUserDetailsService() {
         UserDetails simpleUser = User.builder()
                 .username("simple-user")
                 .password(passwordEncoder().encode("simple"))

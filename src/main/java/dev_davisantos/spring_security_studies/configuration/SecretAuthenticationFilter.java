@@ -35,6 +35,6 @@ public class SecretAuthenticationFilter extends OncePerRequestFilter {
             }
         }
 
-        filterChain.doFilter(request, response); // This is obrigatory, if it's not called, will break the chain and the client can receive a 401 status code
+        filterChain.doFilter(request, response);
     }
 }

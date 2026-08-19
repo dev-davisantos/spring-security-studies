@@ -30,7 +30,7 @@ public class UserService {
                         roleRepository.findByName(role).orElse(null))
                 .collect(Collectors.toSet());
 
-        if (roles.isEmpty()) {
+        if (roles.isEmpty() || roles.size() < 1) {
             throw new IllegalArgumentException("Roles was not found");
         }
 
